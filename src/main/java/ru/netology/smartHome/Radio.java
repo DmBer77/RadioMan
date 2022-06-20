@@ -3,25 +3,45 @@ package ru.netology.smartHome;
 public class Radio {
 
     public int currentRadioStation;
+    public int totalNumberOfStations;
+    public int lastStation;
+    public int firstStation;
+    public int currentLevelOfSound;
+    public int minLevelOfSound = 0;
+    public int maxLevelOfSound = 100;
+
+
+// ____________________________________ работа с радио _______________________________________
+
+    public Radio (int totalNumberOfStations) {
+        this.firstStation = 0;
+        this.lastStation = totalNumberOfStations -1;
+    }
+
+    public Radio() {
+        this.totalNumberOfStations = 10;
+        this.firstStation = 0;
+        this.lastStation = totalNumberOfStations - 1;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
-            currentRadioStation = 9;
+        if (newCurrentRadioStation < firstStation) {
+            currentRadioStation = lastStation;
             return;
         }
-        if (newCurrentRadioStation > 9) {
-            currentRadioStation = 0;
+        if (newCurrentRadioStation > lastStation) {
+            currentRadioStation = firstStation;
             return;
         }
         currentRadioStation = newCurrentRadioStation;
     }
 
     public void nextStation(int currentRadioStation) {
-        if (currentRadioStation <= 9) {
+        if (currentRadioStation <= lastStation) {
             currentRadioStation = currentRadioStation + 1;
             setCurrentRadioStation(currentRadioStation);
         } else {
@@ -30,7 +50,7 @@ public class Radio {
     }
 
     public void prevStation(int currentRadioStation) {
-        if (currentRadioStation >= 0) {
+        if (currentRadioStation >= firstStation) {
             currentRadioStation = currentRadioStation - 1;
             setCurrentRadioStation(currentRadioStation);
         } else {
@@ -39,33 +59,32 @@ public class Radio {
     }
 
     public void setToFirstStation() {
-        currentRadioStation = 0;
+        currentRadioStation = firstStation;
     }
 
     public void setToLastStation() {
-        currentRadioStation = 9;
+        currentRadioStation = lastStation;
     }
-
-    public int currentLevelOfSound;
+// ____________________________________ работа со звуком _______________________________________
 
     public int getCurrentLevelOfSound() {
         return currentLevelOfSound;
     }
 
     public void setCurrentLevelOfSound(int newCurrentLevelOfSound) {
-        if (newCurrentLevelOfSound < 0) {
-            currentLevelOfSound = 0;
+        if (newCurrentLevelOfSound < minLevelOfSound) {
+            currentLevelOfSound = minLevelOfSound;
             return;
         }
-        if (newCurrentLevelOfSound > 10) {
-            currentLevelOfSound = 10;
+        if (newCurrentLevelOfSound > maxLevelOfSound) {
+            currentLevelOfSound = maxLevelOfSound;
             return;
         }
         currentLevelOfSound = newCurrentLevelOfSound;
     }
 
     public void turnUpTheLevelOfSound(int currentLevelOfSound) {
-        if (currentLevelOfSound <= 10) {
+        if (currentLevelOfSound <= maxLevelOfSound) {
             currentLevelOfSound = currentLevelOfSound + 1;
             setCurrentLevelOfSound(currentLevelOfSound);
         } else {
@@ -74,7 +93,7 @@ public class Radio {
     }
 
     public void turnDownTheLevelOfSound(int currentLevelOfSound) {
-        if (currentLevelOfSound >= 0) {
+        if (currentLevelOfSound >= minLevelOfSound) {
             currentLevelOfSound = currentLevelOfSound - 1;
             setCurrentLevelOfSound(currentLevelOfSound);
         } else {
@@ -83,10 +102,10 @@ public class Radio {
     }
 
     public void setToMinLevelOfSound() {
-        currentLevelOfSound = 0;
+        currentLevelOfSound = minLevelOfSound;
     }
 
     public void setToMaxLevelOfSound() {
-        currentLevelOfSound = 10;
+        currentLevelOfSound = maxLevelOfSound;
     }
 }
