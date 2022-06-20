@@ -109,4 +109,111 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shouldSetLevelOfSound(){
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.setCurrentLevelOfSound(6);
+
+        int expected = 6;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSEtTheLowestLevelOfSound() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.setToMinLevelOfSound();
+
+        int expected = 0;
+        int actual = levelOfSound.currentLevelOfSound;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetTheHighestLevelOfSound() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.setToMaxLevelOfSound();
+
+        int expected = 10;
+        int actual = levelOfSound.currentLevelOfSound;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotChangeTheLevelOfSoundIfAlreadyMax() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnUpTheLevelOfSound(11);
+
+        int expected = 10;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotChangeTheLevelOfSoundIfAlreadyMin() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnDownTheLevelOfSound(-1);
+
+        int expected = 0;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnUpTheLevelOfSoundFromTopBorder() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnUpTheLevelOfSound(10);
+
+        int expected = 10;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnUpTheLevelOfSoundFromMiddleLevel() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnUpTheLevelOfSound(5);
+
+        int expected = 6;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnDownTheLevelOfSoundFromBottomBorder() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnDownTheLevelOfSound(0);
+
+        int expected = 0;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnDownTheLevelOfSoundFromMiddleLevel() {
+        Radio levelOfSound = new Radio();
+
+        levelOfSound.turnDownTheLevelOfSound(5);
+
+        int expected = 4;
+        int actual = levelOfSound.getCurrentLevelOfSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
