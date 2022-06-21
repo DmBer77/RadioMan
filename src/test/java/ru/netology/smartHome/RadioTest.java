@@ -23,7 +23,7 @@ public class RadioTest {
         radioStat.setToFirstStation();
 
         int expected = 0;
-        int actual = radioStat.currentRadioStation;
+        int actual = radioStat.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -35,7 +35,7 @@ public class RadioTest {
         radioStat.setToLastStation();
 
         int expected = 9;
-        int actual = radioStat.currentRadioStation;
+        int actual = radioStat.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -128,7 +128,7 @@ public class RadioTest {
         levelOfSound.setToMinLevelOfSound();
 
         int expected = 0;
-        int actual = levelOfSound.currentLevelOfSound;
+        int actual = levelOfSound.getCurrentLevelOfSound();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -140,7 +140,7 @@ public class RadioTest {
         levelOfSound.setToMaxLevelOfSound();
 
         int expected = 10;
-        int actual = levelOfSound.currentLevelOfSound;
+        int actual = levelOfSound.getCurrentLevelOfSound();
 
         Assertions.assertEquals(expected, actual);
     }

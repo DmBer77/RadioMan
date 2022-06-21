@@ -2,7 +2,9 @@ package ru.netology.smartHome;
 
 public class Radio {
 
-    public int currentRadioStation;
+    private int currentRadioStation;
+    private int currentLevelOfSound;
+
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
@@ -18,6 +20,22 @@ public class Radio {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
+    }
+
+    public int getCurrentLevelOfSound() {
+        return currentLevelOfSound;
+    }
+
+    public void setCurrentLevelOfSound(int newCurrentLevelOfSound) {
+        if (newCurrentLevelOfSound < 0) {
+            currentLevelOfSound = 0;
+            return;
+        }
+        if (newCurrentLevelOfSound > 10) {
+            currentLevelOfSound = 10;
+            return;
+        }
+        currentLevelOfSound = newCurrentLevelOfSound;
     }
 
     public void nextStation(int currentRadioStation) {
@@ -44,24 +62,6 @@ public class Radio {
 
     public void setToLastStation() {
         currentRadioStation = 9;
-    }
-
-    public int currentLevelOfSound;
-
-    public int getCurrentLevelOfSound() {
-        return currentLevelOfSound;
-    }
-
-    public void setCurrentLevelOfSound(int newCurrentLevelOfSound) {
-        if (newCurrentLevelOfSound < 0) {
-            currentLevelOfSound = 0;
-            return;
-        }
-        if (newCurrentLevelOfSound > 10) {
-            currentLevelOfSound = 10;
-            return;
-        }
-        currentLevelOfSound = newCurrentLevelOfSound;
     }
 
     public void turnUpTheLevelOfSound(int currentLevelOfSound) {
