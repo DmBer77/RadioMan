@@ -148,8 +148,9 @@ public class RadioTest {
     @Test
     public void shouldNotChangeTheLevelOfSoundIfAlreadyMax() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(10);
 
-        levelOfSound.turnUpTheLevelOfSound(11);
+        levelOfSound.turnUpTheLevelOfSound();
 
         int expected = 10;
         int actual = levelOfSound.getCurrentLevelOfSound();
@@ -160,8 +161,9 @@ public class RadioTest {
     @Test
     public void shouldNotChangeTheLevelOfSoundIfAlreadyMin() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(0);
 
-        levelOfSound.turnDownTheLevelOfSound(-1);
+        levelOfSound.turnDownTheLevelOfSound();
 
         int expected = 0;
         int actual = levelOfSound.getCurrentLevelOfSound();
@@ -172,8 +174,9 @@ public class RadioTest {
     @Test
     public void shouldTurnUpTheLevelOfSoundFromTopBorder() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(11);
 
-        levelOfSound.turnUpTheLevelOfSound(10);
+        levelOfSound.turnUpTheLevelOfSound();
 
         int expected = 10;
         int actual = levelOfSound.getCurrentLevelOfSound();
@@ -184,8 +187,9 @@ public class RadioTest {
     @Test
     public void shouldTurnUpTheLevelOfSoundFromMiddleLevel() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(5);
 
-        levelOfSound.turnUpTheLevelOfSound(5);
+        levelOfSound.turnUpTheLevelOfSound();
 
         int expected = 6;
         int actual = levelOfSound.getCurrentLevelOfSound();
@@ -196,8 +200,9 @@ public class RadioTest {
     @Test
     public void shouldTurnDownTheLevelOfSoundFromBottomBorder() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(-1);
 
-        levelOfSound.turnDownTheLevelOfSound(0);
+        levelOfSound.turnDownTheLevelOfSound();
 
         int expected = 0;
         int actual = levelOfSound.getCurrentLevelOfSound();
@@ -208,8 +213,9 @@ public class RadioTest {
     @Test
     public void shouldTurnDownTheLevelOfSoundFromMiddleLevel() {
         Radio levelOfSound = new Radio();
+        levelOfSound.setCurrentLevelOfSound(5);
 
-        levelOfSound.turnDownTheLevelOfSound(5);
+        levelOfSound.turnDownTheLevelOfSound();
 
         int expected = 4;
         int actual = levelOfSound.getCurrentLevelOfSound();

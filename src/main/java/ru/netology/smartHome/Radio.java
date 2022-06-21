@@ -64,8 +64,8 @@ public class Radio {
         currentRadioStation = 9;
     }
 
-    public void turnUpTheLevelOfSound(int currentLevelOfSound) {
-        if (currentLevelOfSound <= 10) {
+    public void turnUpTheLevelOfSound() {
+        if (getCurrentLevelOfSound() < 10) {
             currentLevelOfSound = currentLevelOfSound + 1;
             setCurrentLevelOfSound(currentLevelOfSound);
         } else {
@@ -73,8 +73,8 @@ public class Radio {
         }
     }
 
-    public void turnDownTheLevelOfSound(int currentLevelOfSound) {
-        if (currentLevelOfSound >= 0) {
+    public void turnDownTheLevelOfSound() {
+        if (getCurrentLevelOfSound() > 0) {
             currentLevelOfSound = currentLevelOfSound - 1;
             setCurrentLevelOfSound(currentLevelOfSound);
         } else {
