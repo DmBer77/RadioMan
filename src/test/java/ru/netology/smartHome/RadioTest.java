@@ -54,8 +54,9 @@ public class RadioTest {
     @Test
     public void shouldSetToFirstStationIfTryToSetLastPlusOneByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStation(9);
 
-        radioStat.nextStation(10);
+        radioStat.nextStation();
 
         int expected = 0;
         int actual = radioStat.getCurrentRadioStation();
@@ -66,8 +67,9 @@ public class RadioTest {
     @Test
     public void shouldSetToFirstStationIfTryToSetLastPlusOne() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStationForTest(30);
 
-        radioStat.nextStation(30);
+        radioStat.nextStation();
 
         int expected = 0;
         int actual = radioStat.getCurrentRadioStation();
@@ -78,8 +80,9 @@ public class RadioTest {
     @Test
     public void shouldSetToLastStationIfTryToSetFirstMinusOneByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStation(0);
 
-        radioStat.prevStation(-1);
+        radioStat.prevStation();
 
         int expected = 9;
         int actual = radioStat.getCurrentRadioStation();
@@ -90,8 +93,9 @@ public class RadioTest {
     @Test
     public void shouldSetToLastStationIfTryToSetFirstMinusOne() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStation(0);
 
-        radioStat.prevStation(-1);
+        radioStat.prevStation();
 
         int expected = 29;
         int actual = radioStat.getCurrentRadioStation();
@@ -102,8 +106,9 @@ public class RadioTest {
     @Test
     public void shouldIncreaseCurrentStationFromTopBorderByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStationForTest(10);
 
-        radioStat.nextStation(9);
+        radioStat.nextStation();
 
         int expected = 0;
         int actual = radioStat.getCurrentRadioStation();
@@ -113,8 +118,9 @@ public class RadioTest {
     @Test
     public void shouldIncreaseCurrentStationFromTopBorder() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStationForTest(29);
 
-        radioStat.nextStation(29);
+        radioStat.nextStation();
 
         int expected = 0;
         int actual = radioStat.getCurrentRadioStation();
@@ -125,8 +131,9 @@ public class RadioTest {
     @Test
     public void shouldIncreaseCurrentStationFromMiddleLevelByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStation(5);
 
-        radioStat.nextStation(5);
+        radioStat.nextStation();
 
         int expected = 6;
         int actual = radioStat.getCurrentRadioStation();
@@ -137,8 +144,9 @@ public class RadioTest {
     @Test
     public void shouldIncreaseCurrentStationFromMiddleLevel() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStation(15);
 
-        radioStat.nextStation(15);
+        radioStat.nextStation();
 
         int expected = 16;
         int actual = radioStat.getCurrentRadioStation();
@@ -148,8 +156,9 @@ public class RadioTest {
     @Test
     public void shouldDecreaseCurrentStationFromBottomBorderByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStationForTest(-1);
 
-        radioStat.prevStation(0);
+        radioStat.prevStation();
 
         int expected = 9;
         int actual = radioStat.getCurrentRadioStation();
@@ -159,8 +168,9 @@ public class RadioTest {
     @Test
     public void shouldDecreaseCurrentStationFromBottomBorder() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStationForTest(-1);
 
-        radioStat.prevStation(0);
+        radioStat.prevStation();
 
         int expected = 29;
         int actual = radioStat.getCurrentRadioStation();
@@ -170,8 +180,9 @@ public class RadioTest {
     @Test
     public void shouldDecreaseCurrentStationFromMiddleLevelByDefault() {
         Radio radioStat = new Radio();
+        radioStat.setCurrentRadioStation(5);
 
-        radioStat.prevStation(5);
+        radioStat.prevStation();
 
         int expected = 4;
         int actual = radioStat.getCurrentRadioStation();
@@ -182,8 +193,9 @@ public class RadioTest {
     @Test
     public void shouldDecreaseCurrentStationFromMiddleLevel() {
         Radio radioStat = new Radio(30);
+        radioStat.setCurrentRadioStation(18);
 
-        radioStat.prevStation(18);
+        radioStat.prevStation();
 
         int expected = 17;
         int actual = radioStat.getCurrentRadioStation();
