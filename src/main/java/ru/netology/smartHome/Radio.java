@@ -56,6 +56,7 @@ public class Radio {
     }
 
     public void nextStation() {
+
         if (getCurrentRadioStation() <= lastStation) {
             currentRadioStation = currentRadioStation + 1;
             setCurrentRadioStation(currentRadioStation);
@@ -65,6 +66,7 @@ public class Radio {
     }
 
     public void prevStation() {
+
         if (getCurrentRadioStation() >= firstStation) {
             currentRadioStation = currentRadioStation - 1;
             setCurrentRadioStation(currentRadioStation);
